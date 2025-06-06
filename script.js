@@ -12,7 +12,6 @@ class Drop {
     this.color = color;
   }
 
-
   // desenhando a gotinha
   draw(ctx) {
     ctx.fillStyle = this.color;
@@ -71,13 +70,10 @@ function animateDrop() {
   requestAnimationFrame(animate);
 }
 
-
-
 // canvas style
-canvas.style.border = "1px dotted #31393b"
+canvas.style.border = "3px dotted rgb(255, 255, 255)"
 canvas.style.background = "#0d1029"
 
 // chama as gotinhas
-createDrops(300);
+createDrops(10);
 animateDrop()
-
