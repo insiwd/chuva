@@ -71,9 +71,9 @@ function animateDrop() {
 }
 
 // canvas style
-canvas.style.border = "3px dotted rgb(255, 255, 255)"
+canvas.style.border = "1px dotted rgb(255, 255, 255)"
 canvas.style.background = "#0d1029"
 
 // chama as gotinhas
-createDrops(10);
+createDrops(30);
 animateDrop()
