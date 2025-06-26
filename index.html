@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chuva != Sol</title>
-  <link rel="stylesheet" href="css/rain.css">
-</head>
-<body>
-  <div id="app">
-    <span id="cityName">Maceió,</span>
-    <span>20c,</span>
-    <span>Chuva</span>
-    <canvas id="canvas" width="640" height="360"></canvas>
-  </div>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chuva != Sol</title>
+    <link rel="stylesheet" href="css/rain.css" />
+  </head>
+  <body>
+    <div id="app">
+      <span id="cityName" onclick="changeCity(this)">Maceió</span>
+      <input type="text" id="cityInput" style="display: none;"/>
+      <span>20c,</span>
+      <span>Chuva</span>
+      <canvas id="canvas" width="640" height="360"></canvas>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
 </html>
