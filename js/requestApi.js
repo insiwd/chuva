@@ -1,6 +1,6 @@
 function getWeatherByLocation(location) {
   fetch(
-    "http://api.weatherapi.com/v1/current.json?key=a48bdd7e5f1e436ca3b193236252506&q=" + location
+    "" + location
     // checa se deu certo
   )
     .then((response) => {
