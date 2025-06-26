@@ -4,7 +4,7 @@ body {
   background-color: #0d0e1b;
 }
 
-p {
+p, span{
   color: aliceblue;
   text-align: center;
 
