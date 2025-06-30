@@ -1,28 +1,28 @@
-const cityName = document.getElementById("cityName");
-const cityInput = document.getElementById("cityInput");
+import { initializeRainCanvas, createDrops, animateDrop } from "./rain.js";
+import { weatherCode, getCityName, getUserLocation } from "./requestApi.js";
 
-cityName.addEventListener("click", () => {
-    cityName.style.display = "none";
-    cityInput.style.display = "inline";
+async function startSite() {
+  const currentWeather = await weatherCode();
+  const getUserCityName = await getCityName();
 
-    cityInput.value = cityName.textContent.trim();
-    cityInput.focus();
+  document.getElementById("temperatureSpan").innerHTML = `${Math.floor(currentWeather.temperature)}°C,`
+
+  if (currentWeather.status === 3) {
+    if (currentWeather.isDay === 1) {
+      document.getElementById("daySpan").innerHTML = "Dia,"
+    } else {
+      document.getElementById("daySpan").innerHTML = "Noite,"
+    }
+    // muda o span para "chuva"
+    document.getElementById("weatherSpan").innerHTML = "Chuva!"
+
+    initializeRainCanvas("canvas");
+    createDrops(30);
+    animateDrop();
+  }
+
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  startSite();
 });
-
-//ao perder o foco
-cityInput.addEventListener("blur", () => {
-    const newCity = cityInput.value.trim();
-    if (newCity) {
-        cityName.textContent = newCity;
-        // TODO: chamar API
-    }
-    cityInput.style.display = "none";
-    cityName.style.display = "inline";  
-})
-
-// enter
-cityInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        cityInput.blur();
-    }
-})

@@ -8,12 +8,13 @@
   </head>
   <body>
     <div id="app">
-      <span id="cityName" onclick="changeCity(this)">Maceió</span>
-      <input type="text" id="cityInput" style="display: none;"/>
-      <span>20c,</span>
-      <span>Chuva</span>
+      <span id="daySpan">Dia</span>
+      <span id="cityName" onclick="changeCity(this)">Cidade</span>
+      <!-- <input type="text" id="cityInput" style="display: none" /> -->
+      <span id="temperatureSpan">Temperatura</span>
+      <span id="weatherSpan">Clima</span>
       <canvas id="canvas" width="640" height="360"></canvas>
     </div>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
