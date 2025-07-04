@@ -14,11 +14,14 @@ export function getUserLocation() {
         },
         (error) => {
           reject(error);
+          window.prompt(
+            "OK! Se você não quer permitir, escreva suas coordenadas, espertinho! (-`‸´-)"
+          );
           console.error("erro: ", error);
         }
       );
     } else {
-      reject("Geolocalização não suoprtada.");
+      reject("Geolocalização não suportada.");
     }
   });
 }
@@ -90,7 +93,7 @@ export async function getCityName(latitude, longitude) {
 
     // resposta em json
     const data = await response.json();
-    
+
     if (data.address) {
       if (data.address.city) {
         console.log("Cidade: ", data.address.city);
