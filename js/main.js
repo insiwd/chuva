@@ -1,6 +1,7 @@
 import { initializeRainCanvas, createDrops, animateDrop } from "./rain.js";
 import { weatherCode, getCityName, getUserLocation } from "./requestApi.js";
 import { initializeSunParticles, createSunParticles, animateSunParticles } from "./sun.js";
+import { initializeCloudyParticles, createCloudyParticles, animateCloudyParticles } from "./cloudy.js";
 
 async function startSite() {
   const currentWeather = await weatherCode();
@@ -39,12 +40,16 @@ async function startSite() {
   } else if (currentWeather.status === 2) {
     // nublado
     document.getElementById("weatherSpan").innerHTML = "Nublado!";
+
+    initializeCloudyParticles("canvas");
+    createCloudyParticles(30);
+    animateCloudyParticles();
    
   } else {
     document.getElementById("weatherSpan").innerHTML = "Sol!";
     
     initializeSunParticles("canvas");
-    createSunParticles(30)
+    createSunParticles(30);
     animateSunParticles();
   }
 }
