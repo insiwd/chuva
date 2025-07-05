@@ -1,5 +1,6 @@
 import { initializeRainCanvas, createDrops, animateDrop } from "./rain.js";
 import { weatherCode, getCityName, getUserLocation } from "./requestApi.js";
+import { initializeSunParticles, createSunParticles, animateSunParticles } from "./sun.js";
 
 async function startSite() {
   const currentWeather = await weatherCode();
@@ -36,9 +37,15 @@ async function startSite() {
     createDrops(30);
     animateDrop();
   } else if (currentWeather.status === 2) {
+    // nublado
     document.getElementById("weatherSpan").innerHTML = "Nublado!";
+   
   } else {
     document.getElementById("weatherSpan").innerHTML = "Sol!";
+    
+    initializeSunParticles("canvas");
+    createSunParticles(30)
+    animateSunParticles();
   }
 }
 
